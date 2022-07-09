@@ -1,0 +1,45 @@
+﻿Build started 09.07.2022 14:11:26.
+     1>Project "C:\PS3HEN\Make_PKG\xai_plugin\videorec\videorec.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         stdafx.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_videorec -DSTUBNAME=cellPrx_videorec_stub -o PS3_Debug\stdafx.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti --create_pch="PS3_Debug\videorec.pch" C:\PS3HEN\Make_PKG\xai_plugin\videorec\stdafx.cpp
+         "C:\PS3HEN\Make_PKG\xai_plugin\videorec\stdafx.cpp": creating precompiled header file "PS3_Debug\videorec.pch"
+         prx.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_videorec -DSTUBNAME=cellPrx_videorec_stub -o PS3_Debug\prx.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti --use_pch="PS3_Debug\videorec.pch" C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(97,13): warning 552: variable "err" was set but never used
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(137,6): warning 178: variable "tmp" was declared but never referenced
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(168): warning 942: missing return statement at end of non-void function "_videorec_export_function_video_rec"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(175,60): warning 942: missing return statement at end of non-void function "npdr_handler"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(211,44): warning 942: missing return statement at end of non-void function "ps3_savedata_plugin_init__"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(250,56): warning 942: missing return statement at end of non-void function "x3_0xD277E345_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(273): warning 942: missing return statement at end of non-void function "x3_0xD277E345_hook"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(274,80): warning 942: missing return statement at end of non-void function "x3_0xA06976E_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(294,79): warning 942: missing return statement at end of non-void function "GetItemFromMetaList_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(323,84): warning 942: missing return statement at end of non-void function "GetItemFromMetaList_Mini_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(406,76): warning 942: missing return statement at end of non-void function "cellFsOpen_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(425,69): warning 942: missing return statement at end of non-void function "cellFsRead_"
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(488,5): warning 178: function "notify(const char *, int)" was declared but never referenced
+         
+     1>C:\PS3HEN\Make_PKG\xai_plugin\videorec\prx.cpp(483,5): warning 178: function "notify(char *)" was declared but never referenced
+         
+       Link:
+         C:\usr\local\cell\host-win32\sn\bin\ps3ppuld64.exe -oformat=prx -o "C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\videorec.prx" -L"C:/usr/local/cell\host-win32\lib\prx\ldscripts" --start-group PS3_Debug\prx.o PS3_Debug\stdafx.o C:/usr/local/cell\target\ppu\lib\libsyscall.a C:/usr/local/cell\target\ppu\lib\libc.a C:/usr/local/cell\target\ppu\lib\librtc_stub.a libsn.a libm.a libio_stub.a libfs_stub.a --end-group
+         videorec.vcxproj -> C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\videorec.prx
+         Moving Stub Library cellPrx_videorec_stub.a -> C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\
+     1>Done Building Project "C:\PS3HEN\Make_PKG\xai_plugin\videorec\videorec.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.64
