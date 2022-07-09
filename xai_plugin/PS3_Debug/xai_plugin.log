@@ -1,4 +1,4 @@
-﻿Build started 09.07.2022 18:56:31.
+﻿Build started 09.07.2022 23:54:33.
      1>Project "C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\xai_plugin.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          gccpch.h
@@ -54,12 +54,13 @@
      1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(201): warning : unused parameter 'view'
      1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
      1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(82): warning : 'update_mgr_read_eprom' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(83): warning : 'update_mgr_write_eprom' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(86): warning : 'xBDVDGetInstance' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(88): warning : 'vsh_2B58A92C' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(89): warning : 'vsh_E20104BE' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(101): warning : 'eid2_indiv_seed_' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(62): warning : 'void reload_xmb_gn()' declared 'static' but never defined
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(83): warning : 'update_mgr_read_eprom' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(84): warning : 'update_mgr_write_eprom' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(87): warning : 'xBDVDGetInstance' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(89): warning : 'vsh_2B58A92C' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(90): warning : 'vsh_E20104BE' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(102): warning : 'eid2_indiv_seed_' defined but not used
        Link:
          C:\usr\local\cell\host-win32\ppu\bin\ppu-lv2-gcc.exe -o "C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.prx" -mprx -zgenprx -zgenstub -fno-exceptions -fno-rtti -Wl,--start-group PS3_Debug\hfw_settings.o PS3_Debug\des.o PS3_Debug\log.o PS3_Debug\prx.o C:/usr/local/cell\target\ppu\lib\libfs_stub.a C:/usr/local/cell\target\ppu\lib\libsyscall.a C:/usr/local/cell\target\ppu\lib\libc.a C:/usr/local/cell\target\ppu\lib\librtc_stub.a C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\\cellPrx_videorec_stub.a "C:\Program Files (x86)\SN Systems\PS3\ppu\lib\sn\libsn.a" C:/usr/local/cell\target\ppu\lib\libm.a C:/usr/local/cell\target\ppu\lib\libio_stub.a C:/usr/local/cell\target\ppu\lib\liblv2_stub.a -Wl,--end-group
          xai_plugin.vcxproj -> C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.prx
@@ -71,4 +72,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.42
+Time Elapsed 00:00:01.27

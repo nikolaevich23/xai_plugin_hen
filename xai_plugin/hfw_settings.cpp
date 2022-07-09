@@ -1438,6 +1438,13 @@ void downloadPKG(wchar_t * url)
 	LoadPlugin("download_plugin",(void*)download_thread);			
 }
 
+static void reload_xmb_gn()
+{
+	explore_interface = (explore_plugin_interface *)GetPluginInterface("explore_plugin",1);
+	explore_interface->DoUnk6("reload_category game",0,0);
+	explore_interface->DoUnk6("reload_category network",0,0);	
+}
+
 void copy_file(char* path_ffrom, char* path_fto)
 {
 	int ret;
@@ -1487,15 +1494,16 @@ void toggle_generic(char* path_to_file, char* path_icon_to, char* name)
 	{
 		cellFsOpen(path_to_file, CELL_FS_O_CREAT | CELL_FS_O_RDWR, &fd, 0, 0);
 		cellFsClose(fd);
-		notify("%s Disabled", name);
 		copy_file("/dev_hdd0/hen/off.png", path_icon_to);
+		notify("%s Disabled", name);		
 	}
 	else
 	{
 		cellFsUnlink(path_to_file);
-		notify("%s Enabled", name);
 		copy_file("/dev_hdd0/hen/on.png", path_icon_to);
+		notify("%s Enabled", name);		
 	}
+	reload_xmb_gn();
 }
 
 void toggle_auto_update()
