@@ -1449,23 +1449,23 @@ void copy_file(char* path_ffrom, char* path_fto)
 	}	
 	else
 	{
-		int fdb;
-		cellFsUnlink(path_fto);
+		int fdb;	
 		ret = cellFsOpen(path_fto,CELL_FS_O_CREAT|CELL_FS_O_RDWR, &fdb,0,0);
 				
 		uint8_t buf[0x1000];
 		uint64_t nr;
 		uint64_t nrw;
 
-		while((ret = cellFsRead(fda,buf,0x1000,&nr)) == CELL_FS_SUCCEEDED)
+		while((ret = cellFsRead(fda,buf,sizeof(buf),&nr)) == CELL_FS_SUCCEEDED) 
 		{
-			if((int)nr == 0x1000)
+			if((int)nr == sizeof(buf))
 			{
 				ret = cellFsWrite(fdb,buf,nr,&nrw);
-				memset(buf,0,0x1000);
+				memset(buf,0,sizeof(buf));
 			}
 			else
 			{
+				ret = cellFsWrite(fdb,buf,nr,&nrw);				
 				break;
 			}
 		}

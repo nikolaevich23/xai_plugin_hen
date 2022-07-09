@@ -1,74 +1,74 @@
-﻿Build started 09.07.2022 14:11:27.
-     1>Project "C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\xai_plugin.vcxproj" on node 2 (Build target(s)).
+﻿Build started 09.07.2022 18:56:31.
+     1>Project "C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\xai_plugin.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          gccpch.h
-         ppu-lv2-gcc.exe -x c++-header -o gccpch.h.gch\xai_plugin_Debug.h.gch -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
+         ppu-lv2-gcc.exe -x c++-header -o gccpch.h.gch\xai_plugin_Debug.h.gch -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
          hfw_settings.cpp
-         ppu-lv2-gcc.exe -o PS3_Debug\hfw_settings.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp: In function 'void usb_firm_loader()':
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(481): warning : unused variable 'dev_hdd0'
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(482): warning : unused variable 'dev_hdd1'
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(483): warning : unused variable 'dev_hdd2'
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp: At global scope:
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(1428): warning : unused parameter 'id'
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp: In function 'int read_vsh(std::uint64_t, char*, int)':
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(107): warning : control reaches end of non-void function
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp: In function 'int poke_vsh(std::uint64_t, char*, int)':
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.cpp(84): warning : control reaches end of non-void function
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\/gccpch.h: At global scope:
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
+         ppu-lv2-gcc.exe -o PS3_Debug\hfw_settings.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp: In function 'void usb_firm_loader()':
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(481): warning : unused variable 'dev_hdd0'
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(482): warning : unused variable 'dev_hdd1'
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(483): warning : unused variable 'dev_hdd2'
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp: At global scope:
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(1428): warning : unused parameter 'id'
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp: In function 'int read_vsh(std::uint64_t, char*, int)':
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(107): warning : control reaches end of non-void function
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp: In function 'int poke_vsh(std::uint64_t, char*, int)':
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.cpp(84): warning : control reaches end of non-void function
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\/gccpch.h: At global scope:
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
          des.cpp
-         ppu-lv2-gcc.exe -o PS3_Debug\des.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\des.cpp
+         ppu-lv2-gcc.exe -o PS3_Debug\des.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\des.cpp
          log.cpp
-         ppu-lv2-gcc.exe -o PS3_Debug\log.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\log.cpp
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\log.cpp: In function 'void log_data(const void*, int)':
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\log.cpp(18): warning : unused variable 'tmp'
-         C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\/gccpch.h: At global scope:
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
+         ppu-lv2-gcc.exe -o PS3_Debug\log.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\log.cpp
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\log.cpp: In function 'void log_data(const void*, int)':
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\log.cpp(18): warning : unused variable 'tmp'
+         C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\/gccpch.h: At global scope:
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(23): warning : 'plugin_SetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(24): warning : 'plugin_SetInterface2' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(25): warning : 'plugin_GetInterface' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(26): warning : 'View_Find' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(48): warning : 'xai_plugin_action_if' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(61): warning : 'xai_plugin_functions' defined but not used
          prx.cpp
-         ppu-lv2-gcc.exe -o PS3_Debug\prx.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp(151,70): warning : multi-character character constant
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp(152,70): warning : multi-character character constant
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp(198,27): warning : multi-character character constant
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp(174): warning : unused parameter 'args'
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\prx.cpp(201): warning : unused parameter 'view'
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(82): warning : 'update_mgr_read_eprom' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(83): warning : 'update_mgr_write_eprom' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(86): warning : 'xBDVDGetInstance' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(88): warning : 'vsh_2B58A92C' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(89): warning : 'vsh_E20104BE' defined but not used
-     1>C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\hfw_settings.h(101): warning : 'eid2_indiv_seed_' defined but not used
+         ppu-lv2-gcc.exe -o PS3_Debug\prx.o -c -iquote. -fpch-deps -MD -MV -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\ppu\lib\gcc\ppu-lv2\4.1.1\include" -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -D__GCC__ -DLIBNAME=cellPrx_xai_plugin -DSTUBNAME=cellPrx_xai_plugin_stub -g -Wall -Wextra -O1 -mgen-microcode -fno-exceptions -fno-rtti C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(151,70): warning : multi-character character constant
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(152,70): warning : multi-character character constant
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(198,27): warning : multi-character character constant
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(174): warning : unused parameter 'args'
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\prx.cpp(201): warning : unused parameter 'view'
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(27): warning : 'vsh_sprintf' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\gccpch.h(33): warning : 'vshtask_A02D46E7' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(82): warning : 'update_mgr_read_eprom' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(83): warning : 'update_mgr_write_eprom' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(86): warning : 'xBDVDGetInstance' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(88): warning : 'vsh_2B58A92C' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(89): warning : 'vsh_E20104BE' defined but not used
+     1>C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\hfw_settings.h(101): warning : 'eid2_indiv_seed_' defined but not used
        Link:
-         C:\usr\local\cell\host-win32\ppu\bin\ppu-lv2-gcc.exe -o "C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\xai_plugin.prx" -mprx -zgenprx -zgenstub -fno-exceptions -fno-rtti -Wl,--start-group PS3_Debug\hfw_settings.o PS3_Debug\des.o PS3_Debug\log.o PS3_Debug\prx.o C:/usr/local/cell\target\ppu\lib\libfs_stub.a C:/usr/local/cell\target\ppu\lib\libsyscall.a C:/usr/local/cell\target\ppu\lib\libc.a C:/usr/local/cell\target\ppu\lib\librtc_stub.a C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\\cellPrx_videorec_stub.a "C:\Program Files (x86)\SN Systems\PS3\ppu\lib\sn\libsn.a" C:/usr/local/cell\target\ppu\lib\libm.a C:/usr/local/cell\target\ppu\lib\libio_stub.a C:/usr/local/cell\target\ppu\lib\liblv2_stub.a -Wl,--end-group
-         xai_plugin.vcxproj -> C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\xai_plugin.prx
-         Moving Stub Library cellPRX_xai_plugin_stub.a -> C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\
+         C:\usr\local\cell\host-win32\ppu\bin\ppu-lv2-gcc.exe -o "C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.prx" -mprx -zgenprx -zgenstub -fno-exceptions -fno-rtti -Wl,--start-group PS3_Debug\hfw_settings.o PS3_Debug\des.o PS3_Debug\log.o PS3_Debug\prx.o C:/usr/local/cell\target\ppu\lib\libfs_stub.a C:/usr/local/cell\target\ppu\lib\libsyscall.a C:/usr/local/cell\target\ppu\lib\libc.a C:/usr/local/cell\target\ppu\lib\librtc_stub.a C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\\cellPrx_videorec_stub.a "C:\Program Files (x86)\SN Systems\PS3\ppu\lib\sn\libsn.a" C:/usr/local/cell\target\ppu\lib\libm.a C:/usr/local/cell\target\ppu\lib\libio_stub.a C:/usr/local/cell\target\ppu\lib\liblv2_stub.a -Wl,--end-group
+         xai_plugin.vcxproj -> C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.prx
+         Moving Stub Library cellPRX_xai_plugin_stub.a -> C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\
        PostBuildEvent:
-         C:/usr/local/cell\host-win32\bin\make_fself "C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\xai_plugin.prx" "C:\PS3HEN\Make_PKG\xai_plugin\PS3_Debug\xai_plugin.sprx"
+         C:/usr/local/cell\host-win32\bin\make_fself "C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.prx" "C:\PS3HEN\Make_PKG\xai_plugin_hen\PS3_Debug\xai_plugin.sprx"
          :VCEnd
-     1>Done Building Project "C:\PS3HEN\Make_PKG\xai_plugin\xai_plugin\xai_plugin.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\PS3HEN\Make_PKG\xai_plugin_hen\xai_plugin\xai_plugin.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.24
+Time Elapsed 00:00:01.42
