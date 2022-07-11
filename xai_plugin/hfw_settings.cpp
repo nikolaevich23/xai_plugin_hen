@@ -1438,11 +1438,16 @@ void downloadPKG(wchar_t * url)
 	LoadPlugin("download_plugin",(void*)download_thread);			
 }
 
-static void reload_xmb_gn()
+static void reload_xmb_n()
 {
 	explore_interface = (explore_plugin_interface *)GetPluginInterface("explore_plugin",1);
-	explore_interface->DoUnk6("reload_category game",0,0);
-	explore_interface->DoUnk6("reload_category network",0,0);	
+	explore_interface->DoUnk6("reload_category network",0,0);
+}
+
+static void reload_xmb_g()
+{
+	explore_interface = (explore_plugin_interface *)GetPluginInterface("explore_plugin",1);
+	explore_interface->DoUnk6("reload_category game",0,0);	
 }
 
 void copy_file(char* path_ffrom, char* path_fto)
@@ -1503,7 +1508,7 @@ void toggle_generic(char* path_to_file, char* path_icon_to, char* name)
 		copy_file("/dev_hdd0/hen/on.png", path_icon_to);
 		notify("%s Enabled", name);		
 	}
-	reload_xmb_gn();
+	reload_xmb_n();
 }
 
 void toggle_auto_update()
