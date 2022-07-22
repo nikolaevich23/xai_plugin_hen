@@ -1454,7 +1454,7 @@ void copy_file(char* path_ffrom, char* path_fto)
 {
 	int ret;
 	int fda;
-	ret = cellFsOpen(path_ffrom,CELL_FS_O_RDWR, &fda,0,0);
+	ret = cellFsOpen(path_ffrom,CELL_FS_O_RDONLY, &fda, 0, 0);
 	if(ret != CELL_OK)
 	{
 		notify("Open Error: %x",ret);
@@ -1526,6 +1526,31 @@ void toggle_hen_xmb()
 	toggle_generic("/dev_hdd0/hen/hen_xmb.off", "/dev_hdd0/hen/hen_xmb.png", "HEN in XMB");// Legacy Path
 }
 
+void toggle_hen_pm()
+{
+	toggle_generic("/dev_hdd0/hen/hen_pm.off", "/dev_hdd0/hen/hen_pm.png", "Pakage manager in XMB");// Legacy Path
+}
+
+void toggle_hen_ofw()
+{
+	toggle_generic("/dev_hdd0/hen/hen_ofw.off", "/dev_hdd0/hen/hen_ofw.png", "Utlites in XMB");// Legacy Path
+	int rt = 0;
+	int ff = 0;
+	CellFsStat stat;
+	rt = cellFsStat("/dev_hdd0/hen/hen_ofw.off", &stat);
+	if (rt != CELL_OK)
+	{	
+		cellFsOpen("/dev_hdd0/hen/ofw_m.xml", CELL_FS_O_CREAT | CELL_FS_O_RDWR, &ff, 0, 0);
+		cellFsClose(ff);
+		copy_file("/dev_flash/hen/xml/ofw_m.xml", "/dev_hdd0/hen/ofw_m.xml");	
+	}
+	else
+	{		
+		cellFsUnlink("/dev_hdd0/hen/ofw_m.xml");
+		copy_file("/dev_flash/hen/xml/empty.xml", "/dev_hdd0/hen/ofw_m.xml");
+	}
+
+}
 
 void toggle_hen_repair()
 {

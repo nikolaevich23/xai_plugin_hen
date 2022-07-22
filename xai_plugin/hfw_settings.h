@@ -65,6 +65,8 @@ void toggle_generic(char* path_to_file, char* path_icon_to, char* name);
 void toggle_auto_update();
 void toggle_audio();
 void toggle_hen_xmb();
+void toggle_hen_pm();
+void toggle_hen_ofw();
 void toggle_hen_repair();
 void uninstall_hen();
 

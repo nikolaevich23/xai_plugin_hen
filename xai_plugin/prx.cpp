@@ -327,6 +327,14 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	{
 		toggle_hen_xmb();
 	}
+	else if (strcmp(action, "toggle_hen_pm") == 0)
+	{
+		toggle_hen_pm();
+	}
+	else if (strcmp(action, "toggle_hen_ofw") == 0)
+	{
+		toggle_hen_ofw();
+	}
 	// PS3HEN Repair Installation Files Toggle
 	else if (strcmp(action, "toggle_hen_repair") == 0)
 	{
