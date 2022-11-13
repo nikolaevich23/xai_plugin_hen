@@ -1464,7 +1464,7 @@ void copy_file(char* path_ffrom, char* path_fto)
 		int fdb;	
 		ret = cellFsOpen(path_fto,CELL_FS_O_CREAT|CELL_FS_O_RDWR, &fdb,0,0);
 				
-		uint8_t buf[0x1000];
+		uint8_t buf[0x3000];
 		uint64_t nr;
 		uint64_t nrw;
 
@@ -1552,15 +1552,53 @@ void toggle_hen_ofw()
 
 }
 
+void toggle_hen_mag()
+{
+	toggle_generic("/dev_hdd0/hen/hen_mag.off", "/dev_hdd0/hen/hen_mag.png", "The shops");// Legacy Path
+	int rt = 0;
+	int ff = 0;
+	CellFsStat stat;
+	rt = cellFsStat("/dev_hdd0/hen/hen_mag.off", &stat);
+	if (rt != CELL_OK)
+	{
+		cellFsOpen("/dev_hdd0/hen/mag.xml", CELL_FS_O_CREAT | CELL_FS_O_RDWR, &ff, 0, 0);
+		cellFsClose(ff);
+		copy_file("/dev_flash/hen/xml/mag_on.xml", "/dev_hdd0/hen/mag.xml");
+	}
+	else
+	{
+		cellFsUnlink("/dev_hdd0/hen/mag.xml");
+		copy_file("/dev_flash/hen/xml/empty.xml", "/dev_hdd0/hen/mag.xml");
+	}
+
+}
+
 void toggle_hen_repair()
 {
 	toggle_generic("/dev_hdd0/hen/toggles/hen_repair.off",  "/dev_hdd0/hen/hen_repair.png", "HEN Repair");
 }
 
+
 void uninstall_hen()
 {
-	//TODO
-	//cellFsUnlink("/dev_rewrite/hen/PS3HEN.BIN");
-	//notify("PS3HEN Has Been Removed From Your System. Please Reboot The Console!");
-	notify("This Feature Is Not Yet Implemented!");
+	notify("Wait. Backup files and clean");	
+	copy_file("/dev_hdd0/hen/restore/explore_category_game.rco", "/dev_rewrite/vsh/resource/explore_category_game.rco");
+	copy_file("/dev_hdd0/hen/restore/explore_plugin_full.rco", "/dev_rewrite/vsh/resource/explore_plugin_full.rco");
+	copy_file("/dev_hdd0/hen/restore/software_update_plugin.rco", "/dev_rewrite/vsh/resource/software_update_plugin.rco");
+	copy_file("/dev_hdd0/hen/restore/sysconf_plugin.rco", "/dev_rewrite/vsh/resource/sysconf_plugin.rco");
+	//cellFsUnlink("/dev_rewrite/vsh/resource/videodownloader_plugin.rco");
+	//cellFsUnlink("/dev_rewrite/vsh/resource/xai_plugin.rco");	
+	cellFsUnlink("/dev_rewrite/vsh/resource/explore/xmb/category_network.xml");
+	cellFsUnlink("/dev_rewrite/vsh/resource/explore/xmb/category_video.xml");
+	copy_file("/dev_hdd0/hen/restore/xmb/category_game.xml", "/dev_rewrite/vsh/resource/explore/xmb/category_game.xml");
+	copy_file("/dev_hdd0/hen/restore/xmb/category_network.xml", "/dev_rewrite/vsh/resource/explore/xmb/category_network.xml");
+	copy_file("/dev_hdd0/hen/restore/xmb/category_video.xml", "/dev_rewrite/vsh/resource/explore/xmb/category_video.xml");
+	cellFsUnlink("/dev_rewrite/vsh/resource/explore/xmb/download_list.xml");	
+	cellFsUnlink("/dev_hdd0/hen/hen_audio.off");
+	cellFsUnlink("/dev_hdd0/hen/hen_mag.off");
+	cellFsUnlink("/dev_hdd0/hen/hen_ofw.off");
+	cellFsUnlink("/dev_hdd0/hen/hen_updater.off");
+	cellFsUnlink("/dev_rewrite/hen/PS3HEN.BIN");	
+	notify("PS3HEN Has Been Removed From Your System. Please Reboot The Console!");
+	// notify("This Feature Is Not Yet Implemented!");
 }

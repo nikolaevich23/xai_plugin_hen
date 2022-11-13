@@ -335,6 +335,10 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	{
 		toggle_hen_ofw();
 	}
+	else if (strcmp(action, "toggle_hen_mag") == 0)
+	{
+		toggle_hen_mag();
+	}
 	// PS3HEN Repair Installation Files Toggle
 	else if (strcmp(action, "toggle_hen_repair") == 0)
 	{
