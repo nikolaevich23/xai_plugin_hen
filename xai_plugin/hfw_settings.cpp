@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1531,6 +1530,26 @@ void toggle_hen_pm()
 	toggle_generic("/dev_hdd0/hen/hen_pm.off", "/dev_hdd0/hen/hen_pm.png", "Pakage manager in XMB");// Legacy Path
 }
 
+void toggle_hen_clear_web_history()
+{
+	toggle_generic("/dev_hdd0/hen/clear_web_history.off", "/dev_hdd0/hen/clear_web_history.png", "Clear web history");// Legacy Path
+}
+
+void toggle_hen_clear_web_auth_cache()
+{
+	toggle_generic("/dev_hdd0/hen/clear_web_auth_cache.off", "/dev_hdd0/hen/clear_web_auth_cache.png", "Clear web auth cache");// Legacy Path
+}
+
+void toggle_hen_clear_web_cookie()
+{
+	toggle_generic("/dev_hdd0/hen/clear_web_cookie.off", "/dev_hdd0/hen/clear_web_cookie.png", "Clear web cookie");// Legacy Path
+}
+
+void toggle_hen_clear_info()
+{
+	toggle_generic("/dev_hdd0/hen/clear_info.off", "/dev_hdd0/hen/clear_info.png", "Clear info");// Legacy Path
+}
+
 void toggle_hen_ofw()
 {
 	toggle_generic("/dev_hdd0/hen/hen_ofw.off", "/dev_hdd0/hen/hen_ofw.png", "Utlites in XMB");// Legacy Path
@@ -1572,6 +1591,41 @@ void toggle_hen_mag()
 	}
 
 }
+
+/*void activate_account()
+{
+	char userID[120], accountID[120], act_path[120];
+	CellFsStat stat;
+	uint32_t userid = xUserGetInterface()->GetCurrentUserNumber();	
+
+	if(!check_cobra_version())
+	{
+		//ShowMessage("msg_syscall8_disabled", (char *)XAI_PLUGIN, (char *)TEX_ERROR);
+		notify("%s disabled", (char *)XAI_PLUGIN);
+		return;
+	}
+
+	sprintf_(act_path, ACT_DAT_PATH, (int)userid, NULL);
+	sprintf_(userID, "%08X", userid, NULL);
+	sprintf_(accountID, "/setting/user/%s/npaccount/accountid", (int)userID, NULL);
+
+	if(cellFsStat(act_path, &stat) == CELL_FS_SUCCEEDED)
+	{
+		ShowMessage("msg_cobra_create_act_exist", (char *)XAI_PLUGIN, (char *)TEX_WARNING);
+		return;
+	}
+
+	system_call_4(SC_COBRA_SYSCALL8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_ACTIVATE_ACOUNT, (uint64_t)accountID, (uint64_t)userID);  
+	int ret = (int)(p1);
+
+	if(!ret)
+		ShowMessage("msg_cobra_enable_account_activated", (char *)XAI_PLUGIN, (char *)TEX_SUCCESS);
+	else if(ret == 1)
+		ShowMessage("msg_cobra_create_empty", (char *)XAI_PLUGIN, (char *)TEX_WARNING);		
+	else
+		ShowMessage("msg_cobra_enable_account_error", (char *)XAI_PLUGIN, (char *)TEX_ERROR);
+}*/
+
 
 void toggle_hen_repair()
 {

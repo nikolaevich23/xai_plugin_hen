@@ -331,6 +331,22 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	{
 		toggle_hen_pm();
 	}
+	else if (strcmp(action, "toggle_hen_clear_web_history") == 0)
+	{
+		toggle_hen_clear_web_history();
+	}
+	else if (strcmp(action, "toggle_hen_clear_web_auth_cache") == 0)
+	{
+		toggle_hen_clear_web_auth_cache();
+	}
+	else if (strcmp(action, "toggle_hen_clear_web_cookie") == 0)
+	{
+		toggle_hen_clear_web_cookie();
+	}
+	else if (strcmp(action, "toggle_hen_clear_info") == 0)
+	{
+		toggle_hen_clear_info();
+	}
 	else if (strcmp(action, "toggle_hen_ofw") == 0)
 	{
 		toggle_hen_ofw();
