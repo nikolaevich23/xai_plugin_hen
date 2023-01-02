@@ -70,6 +70,7 @@ void toggle_hen_clear_web_history();
 void toggle_hen_clear_web_auth_cache();
 void toggle_hen_clear_web_cookie();
 void toggle_hen_clear_info();
+void toggle_hen_hotkeys();
 void toggle_hen_ofw();
 void toggle_hen_mag();
 void toggle_hen_repair();

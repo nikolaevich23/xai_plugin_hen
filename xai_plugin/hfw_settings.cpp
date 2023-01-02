@@ -1550,6 +1550,11 @@ void toggle_hen_clear_info()
 	toggle_generic("/dev_hdd0/hen/clear_info.off", "/dev_hdd0/hen/clear_info.png", "Clear info");// Legacy Path
 }
 
+void toggle_hen_hotkeys()
+{
+	toggle_generic("/dev_hdd0/hen/hotkeys.off", "/dev_hdd0/hen/hotkeys.png", "Hotkeys");// Legacy Path
+}
+
 void toggle_hen_ofw()
 {
 	toggle_generic("/dev_hdd0/hen/hen_ofw.off", "/dev_hdd0/hen/hen_ofw.png", "Utlites in XMB");// Legacy Path

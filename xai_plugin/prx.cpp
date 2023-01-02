@@ -347,6 +347,10 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	{
 		toggle_hen_clear_info();
 	}
+	else if (strcmp(action, "toggle_hen_hotkeys") == 0)
+	{
+		toggle_hen_hotkeys();
+	}
 	else if (strcmp(action, "toggle_hen_ofw") == 0)
 	{
 		toggle_hen_ofw();
