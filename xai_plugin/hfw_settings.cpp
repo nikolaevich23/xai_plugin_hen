@@ -1555,6 +1555,16 @@ void toggle_hen_hotkeys()
 	toggle_generic("/dev_hdd0/hen/hotkeys.off", "/dev_hdd0/hen/hotkeys.png", "Hotkeys");// Legacy Path
 }
 
+void toggle_hen_ip()
+{
+	toggle_generic("/dev_hdd0/hen/ip.off", "/dev_hdd0/hen/ip.png", "Show IP");
+}
+
+void toggle_hen_trophy()
+{
+	toggle_generic("/dev_hdd0/hen/trophy.off", "/dev_hdd0/hen/trophy.png", "Additional trophy options");
+}
+
 void toggle_hen_ofw()
 {
 	toggle_generic("/dev_hdd0/hen/hen_ofw.off", "/dev_hdd0/hen/hen_ofw.png", "Utlites in XMB");// Legacy Path

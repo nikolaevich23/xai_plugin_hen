@@ -351,6 +351,14 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	{
 		toggle_hen_hotkeys();
 	}
+	else if (strcmp(action, "toggle_hen_ip") == 0)
+	{
+		toggle_hen_ip();
+	}
+	else if (strcmp(action, "toggle_hen_trophy") == 0)
+	{
+		toggle_hen_trophy();
+	}
 	else if (strcmp(action, "toggle_hen_ofw") == 0)
 	{
 		toggle_hen_ofw();
