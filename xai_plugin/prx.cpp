@@ -313,7 +313,10 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 	*/
 
 	// Update Tools
-
+	else if (strcmp(action, "restore_syscall") == 0)
+	{
+		restore_syscall();
+	}
 	// PS3HEN Automatic Update Toggle
 	else if (strcmp(action, "toggle_auto_update") == 0)
 	{

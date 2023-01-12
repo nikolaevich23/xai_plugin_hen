@@ -1510,6 +1510,17 @@ void toggle_generic(char* path_to_file, char* path_icon_to, char* name)
 	reload_xmb_n();
 }
 
+void restore_syscall()
+{
+	int ret = 0;	
+	CellFsStat stat;
+	ret = cellFsStat("/dev_hdd0/game/XMBMANPLS/PARAM.SFO", &stat);
+	if (ret != CELL_OK)
+	{
+		notify("Syscall Restore");
+	}
+}
+
 void toggle_auto_update()
 {
 	toggle_generic("/dev_hdd0/hen/hen_updater.off", "/dev_hdd0/hen/auto_update.png", "HEN Auto Update");// Legacy Path	

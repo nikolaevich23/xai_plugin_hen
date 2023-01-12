@@ -62,6 +62,7 @@ bool service_mode();
 static void reload_xmb_gn();
 void copy_file(char* path_ffrom, char* path_fto);
 void toggle_generic(char* path_to_file, char* path_icon_to, char* name);
+void restore_syscall();
 void toggle_auto_update();
 void toggle_audio();
 void toggle_hen_xmb();
