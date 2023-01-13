@@ -311,12 +311,15 @@ void xai_plugin_interface_action::xai_plugin_action(const char * action)
 			xmb_reboot(SYS_HARD_REBOOT);
 	}
 	*/
-
-	// Update Tools
+	else if (strcmp(action, "disable_syscall") == 0)
+	{
+		disable_syscall();
+	}
 	else if (strcmp(action, "restore_syscall") == 0)
 	{
 		restore_syscall();
 	}
+	// Update Tools
 	// PS3HEN Automatic Update Toggle
 	else if (strcmp(action, "toggle_auto_update") == 0)
 	{

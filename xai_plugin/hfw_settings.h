@@ -1,3 +1,5 @@
+#define SYSCALL_TABLE	0x8000000000363BE0ULL
+#define DISABLED		0xFFFFFFFF80010003ULL
 
 #define PRODUCT_MODE_FLAG_OFFSET 0x48C07
 #define RECOVERY_MODE_FLAG_OFFSET 0x48C61
@@ -62,6 +64,7 @@ bool service_mode();
 static void reload_xmb_gn();
 void copy_file(char* path_ffrom, char* path_fto);
 void toggle_generic(char* path_to_file, char* path_icon_to, char* name);
+void disable_syscall();
 void restore_syscall();
 void toggle_auto_update();
 void toggle_audio();

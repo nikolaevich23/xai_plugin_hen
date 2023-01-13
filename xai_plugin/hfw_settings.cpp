@@ -1510,15 +1510,79 @@ void toggle_generic(char* path_to_file, char* path_icon_to, char* name)
 	reload_xmb_n();
 }
 
+
+void disable_syscall()
+{
+	int user_id = 0;
+	char xml_delete[100], dat_delete[100];
+	char CI_delete[100], MI_delete[100], PTL_delete[100];
+	CellFsStat stat;
+
+	static uint16_t syscalls[17] =
+	{
+		1022, 204, 203, 202, 201, 200, 9, 10, 11, 15, 20, 35, 36, 38, 6, 8, 7
+	};
+
+	if (peekq(SYSCALL_TABLE) == DISABLED)
+	{
+		notify("syscalls already disabled");
+		return;
+	}
+
+	uint64_t syscall_not_impl = peekq(SYSCALL_TABLE);
+
+	/*if (check_cobra_version())
+	{
+		//Cobra (17 syscalls)
+		for (uint8_t i = 0; i < 17; i++)
+		{
+			system_call_3(SC_COBRA_SYSCALL8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_DISABLE_SYSCALL, (uint64_t)syscalls[i]);
+			//system_call_3(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_ALL_PROC_PID, (uint64_t)(uint32_t)tmp_pid_list);
+		}
+	}*/
+
+	// Normal (17 syscalls)
+	for (uint8_t i = 0; i < 17; i++)
+		pokeq(SYSCALL_TABLE + 8 * syscalls[i], syscall_not_impl);
+
+	if (peekq(SYSCALL_TABLE) != DISABLED)
+	{
+		notify("syscalls disabling error");
+		return;
+	}
+
+	// Deleting history files
+	while (user_id != 200)
+	{	
+		sprintf_(xml_delete, "/dev_hdd0/home/%08d/webbrowser/history.xml", user_id, 0);
+		sprintf_(dat_delete, "/dev_hdd0/home/%08d/etc/boot_history.dat", user_id, 0);
+		sprintf_(CI_delete, "/dev_hdd0/home/%08d/community/CI.TMP", user_id, 0);
+		sprintf_(MI_delete, "/dev_hdd0/home/%08d/community/MI.TMP", user_id, 0);
+		sprintf_(PTL_delete, "/dev_hdd0/home/%08d/community/PTL.TMP", user_id, 0);
+
+		cellFsUnlink(xml_delete);
+		cellFsUnlink(dat_delete);
+		cellFsUnlink(CI_delete);
+		cellFsUnlink(MI_delete);
+		cellFsUnlink(PTL_delete);
+
+		if (!cellFsStat(xml_delete, &stat) || !cellFsStat(dat_delete, &stat) || !cellFsStat(CI_delete, &stat) ||
+			!cellFsStat(MI_delete, &stat) || !cellFsStat(PTL_delete, &stat))
+		{	
+			return;
+		}
+
+		user_id++;
+	}
+	
+	notify("syscalls disabled");
+}
+
 void restore_syscall()
 {
-	int ret = 0;	
 	CellFsStat stat;
-	ret = cellFsStat("/dev_hdd0/game/XMBMANPLS/PARAM.SFO", &stat);
-	if (ret != CELL_OK)
-	{
-		notify("Syscall Restore");
-	}
+	system_call_2(808, (uint64_t)"/dev_flash/vsh/module/software_update_plugin.sprx", (uint64_t)&stat);
+	notify("Syscall Restore");
 }
 
 void toggle_auto_update()
