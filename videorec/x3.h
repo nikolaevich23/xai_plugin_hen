@@ -36,7 +36,7 @@ public:
 	int (*DoUnk30)();
 	int (*DoUnk31)(); // 0x00000000
 	int (*DoUnk32)();
-	int (*GetMetadataType)(int r3,unsigned long long r4,int * r5); // GetMetadataType
+	int (*GetMetadataType)(int r3, unsigned long long r4, int * r5); // GetMetadataType
 	int (*DoUnk34)();
 	int (*CreateMetaList)(int r3, int* r4); // CreateMetaList
 	int (*DoUnk36)(int r3, int r4);
@@ -87,7 +87,7 @@ public:
 	unsigned long long (*DoUnk81)();
 	int (*DoUnk82)();
 	int (*DoUnk83)(); // 0x80030050
-	int (*GenerateMetadataFromFileWithOption)(int r3,char * r4,int * r5, int r6, int * r7, int * r8); // GenerateMetadataFromFileWithOption
+	int (*GenerateMetadataFromFileWithOption)(int r3, char * r4, int * r5, int r6, int * r7, int * r8); // GenerateMetadataFromFileWithOption
 	int (*DoUnk85)();
 	int (*DoUnk86)();
 	int (*DoUnk87)(); // 0x80030050

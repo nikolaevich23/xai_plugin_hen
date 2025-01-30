@@ -1,20 +1,20 @@
 #include "des.h"
 #include "string.h"
 
-#define GET_UINT32_BE(n,b,i)                            \
-{                                                       \
-    (n) = ( (uint32_t) (b)[(i)    ] << 24 )             \
-        | ( (uint32_t) (b)[(i) + 1] << 16 )             \
-        | ( (uint32_t) (b)[(i) + 2] <<  8 )             \
-        | ( (uint32_t) (b)[(i) + 3]       );            \
+#define GET_UINT32_BE(n,b,i)                          \
+{                                                     \
+    (n) = ((uint32_t) (b)[(i)    ] << 24)             \
+        | ((uint32_t) (b)[(i) + 1] << 16)             \
+        | ((uint32_t) (b)[(i) + 2] <<  8)             \
+        | ((uint32_t) (b)[(i) + 3]      );            \
 }
 
-#define PUT_UINT32_BE(n,b,i)                            \
-{                                                       \
-    (b)[(i)    ] = (unsigned char) ( (n) >> 24 );       \
-    (b)[(i) + 1] = (unsigned char) ( (n) >> 16 );       \
-    (b)[(i) + 2] = (unsigned char) ( (n) >>  8 );       \
-    (b)[(i) + 3] = (unsigned char) ( (n)       );       \
+#define PUT_UINT32_BE(n,b,i)                          \
+{                                                     \
+    (b)[(i)    ] = (unsigned char) ((n) >> 24);       \
+    (b)[(i) + 1] = (unsigned char) ((n) >> 16);       \
+    (b)[(i) + 2] = (unsigned char) ((n) >>  8);       \
+    (b)[(i) + 3] = (unsigned char) ((n)      );       \
 }
 
 static const uint32_t LHs[16] =
@@ -49,16 +49,16 @@ static const uint32_t RHs[16] =
 #define DES_ROUND(X,Y)                          \
 {                                               \
     T = *SK++ ^ X;                              \
-    Y ^= SB8[ (T      ) & 0x3F ] ^              \
-         SB6[ (T >>  8) & 0x3F ] ^              \
-         SB4[ (T >> 16) & 0x3F ] ^              \
-         SB2[ (T >> 24) & 0x3F ];               \
+    Y ^= SB8[(T      ) & 0x3F] ^              \
+         SB6[(T >>  8) & 0x3F] ^              \
+         SB4[(T >> 16) & 0x3F] ^              \
+         SB2[(T >> 24) & 0x3F];               \
                                                 \
     T = *SK++ ^ ((X << 28) | (X >> 4));         \
-    Y ^= SB7[ (T      ) & 0x3F ] ^              \
-         SB5[ (T >>  8) & 0x3F ] ^              \
-         SB3[ (T >> 16) & 0x3F ] ^              \
-         SB1[ (T >> 24) & 0x3F ];               \
+    Y ^= SB7[(T      ) & 0x3F] ^              \
+         SB5[(T >>  8) & 0x3F] ^              \
+         SB3[(T >> 16) & 0x3F] ^              \
+         SB1[(T >> 24) & 0x3F];               \
 }
 
 /*
@@ -235,13 +235,13 @@ static const uint32_t SB8[64] =
     T = ((X >>  4) ^ Y) & 0x0F0F0F0F; Y ^= T; X ^= (T <<  4);   \
 }
 
-void mbedtls_des_setkey( uint32_t SK[32], const unsigned char key[MBEDTLS_DES_KEY_SIZE] )
+void mbedtls_des_setkey(uint32_t SK[32], const unsigned char key[MBEDTLS_DES_KEY_SIZE])
 {
     int i;
     uint32_t X, Y, T;
 
-    GET_UINT32_BE( X, key, 0 );
-    GET_UINT32_BE( Y, key, 4 );
+    GET_UINT32_BE(X, key, 0);
+    GET_UINT32_BE(Y, key, 4);
 
     /*
      * Permuted Choice 1
@@ -249,15 +249,15 @@ void mbedtls_des_setkey( uint32_t SK[32], const unsigned char key[MBEDTLS_DES_KE
     T =  ((Y >>  4) ^ X) & 0x0F0F0F0F;  X ^= T; Y ^= (T <<  4);
     T =  ((Y      ) ^ X) & 0x10101010;  X ^= T; Y ^= (T      );
 
-    X =   (LHs[ (X      ) & 0xF] << 3) | (LHs[ (X >>  8) & 0xF ] << 2)
-        | (LHs[ (X >> 16) & 0xF] << 1) | (LHs[ (X >> 24) & 0xF ]     )
-        | (LHs[ (X >>  5) & 0xF] << 7) | (LHs[ (X >> 13) & 0xF ] << 6)
-        | (LHs[ (X >> 21) & 0xF] << 5) | (LHs[ (X >> 29) & 0xF ] << 4);
+    X =   (LHs[(X      ) & 0xF] << 3) | (LHs[ (X >>  8) & 0xF] << 2)
+        | (LHs[(X >> 16) & 0xF] << 1) | (LHs[ (X >> 24) & 0xF]     )
+        | (LHs[(X >>  5) & 0xF] << 7) | (LHs[ (X >> 13) & 0xF] << 6)
+        | (LHs[(X >> 21) & 0xF] << 5) | (LHs[ (X >> 29) & 0xF] << 4);
 
-    Y =   (RHs[ (Y >>  1) & 0xF] << 3) | (RHs[ (Y >>  9) & 0xF ] << 2)
-        | (RHs[ (Y >> 17) & 0xF] << 1) | (RHs[ (Y >> 25) & 0xF ]     )
-        | (RHs[ (Y >>  4) & 0xF] << 7) | (RHs[ (Y >> 12) & 0xF ] << 6)
-        | (RHs[ (Y >> 20) & 0xF] << 5) | (RHs[ (Y >> 28) & 0xF ] << 4);
+    Y =   (RHs[(Y >>  1) & 0xF] << 3) | (RHs[ (Y >>  9) & 0xF] << 2)
+        | (RHs[(Y >> 17) & 0xF] << 1) | (RHs[ (Y >> 25) & 0xF]     )
+        | (RHs[(Y >>  4) & 0xF] << 7) | (RHs[ (Y >> 12) & 0xF] << 6)
+        | (RHs[(Y >> 20) & 0xF] << 5) | (RHs[ (Y >> 28) & 0xF] << 4);
 
     X &= 0x0FFFFFFF;
     Y &= 0x0FFFFFFF;
@@ -265,9 +265,9 @@ void mbedtls_des_setkey( uint32_t SK[32], const unsigned char key[MBEDTLS_DES_KE
     /*
      * calculate subkeys
      */
-    for( i = 0; i < 16; i++ )
+    for(i = 0; i < 16; i++)
     {
-        if( i < 2 || i == 8 || i == 15 )
+        if(i < 2 || i == 8 || i == 15)
         {
             X = ((X <<  1) | (X >> 27)) & 0x0FFFFFFF;
             Y = ((Y <<  1) | (Y >> 27)) & 0x0FFFFFFF;
@@ -304,72 +304,72 @@ void mbedtls_des_setkey( uint32_t SK[32], const unsigned char key[MBEDTLS_DES_KE
     }
 }
 
-int mbedtls_des_setkey_dec( mbedtls_des_context *ctx, const unsigned char key[MBEDTLS_DES_KEY_SIZE] )
+int mbedtls_des_setkey_dec(mbedtls_des_context *ctx, const unsigned char key[MBEDTLS_DES_KEY_SIZE])
 {
     int i;
 
-    mbedtls_des_setkey( ctx->sk, key );
+    mbedtls_des_setkey(ctx->sk, key);
 
-    for( i = 0; i < 16; i += 2 )
+    for(i = 0; i < 16; i += 2)
     {
-        SWAP( ctx->sk[i    ], ctx->sk[30 - i] );
-        SWAP( ctx->sk[i + 1], ctx->sk[31 - i] );
+        SWAP(ctx->sk[i    ], ctx->sk[30 - i]);
+        SWAP(ctx->sk[i + 1], ctx->sk[31 - i]);
     }
 
-    return( 0 );
+    return(0);
 }
 
-int mbedtls_des_crypt_ecb( mbedtls_des_context *ctx,
+int mbedtls_des_crypt_ecb(mbedtls_des_context *ctx,
                     const unsigned char input[8],
-                    unsigned char output[8] )
+                    unsigned char output[8])
 {
     int i;
     uint32_t X, Y, T, *SK;
 
     SK = ctx->sk;
 
-    GET_UINT32_BE( X, input, 0 );
-    GET_UINT32_BE( Y, input, 4 );
+    GET_UINT32_BE(X, input, 0);
+    GET_UINT32_BE(Y, input, 4);
 
-    DES_IP( X, Y );
+    DES_IP(X, Y);
 
-    for( i = 0; i < 8; i++ )
+    for(i = 0; i < 8; i++)
     {
-        DES_ROUND( Y, X );
-        DES_ROUND( X, Y );
+        DES_ROUND(Y, X);
+        DES_ROUND(X, Y);
     }
 
-    DES_FP( Y, X );
+    DES_FP(Y, X);
 
-    PUT_UINT32_BE( Y, output, 0 );
-    PUT_UINT32_BE( X, output, 4 );
+    PUT_UINT32_BE(Y, output, 0);
+    PUT_UINT32_BE(X, output, 4);
 
-    return( 0 );
+    return(0);
 }
 
 
-int mbedtls_des_crypt_cbc( mbedtls_des_context *ctx,
+int mbedtls_des_crypt_cbc(mbedtls_des_context *ctx,
                     int mode,
                     size_t length,
                     unsigned char iv[8],
                     const unsigned char *input,
-                    unsigned char *output )
+                    unsigned char *output)
 {
     int i;
     unsigned char temp[8];
 
-    if( length % 8 )
-        return( MBEDTLS_ERR_DES_INVALID_INPUT_LENGTH );
+    if(length % 8)
+        return(MBEDTLS_ERR_DES_INVALID_INPUT_LENGTH);
 
-    if( mode == MBEDTLS_DES_ENCRYPT )
+    if(mode == MBEDTLS_DES_ENCRYPT)
     {
-        while( length > 0 )
+        while(length > 0)
         {
-            for( i = 0; i < 8; i++ )
-                output[i] = (unsigned char)( input[i] ^ iv[i] );
+            for(i = 0; i < 8; i++)
+                output[i] = (unsigned char)(input[i] ^ iv[i]);
 
-            mbedtls_des_crypt_ecb( ctx, output, output );
-            memcpy( iv, output, 8 );
+            mbedtls_des_crypt_ecb(ctx, output, output);
+            memcpy(iv, output, 8);
 
             input  += 8;
             output += 8;
@@ -378,15 +378,15 @@ int mbedtls_des_crypt_cbc( mbedtls_des_context *ctx,
     }
     else /* MBEDTLS_DES_DECRYPT */
     {
-        while( length > 0 )
+        while(length > 0)
         {
-            memcpy( temp, input, 8 );
-            mbedtls_des_crypt_ecb( ctx, input, output );
+            memcpy(temp, input, 8);
+            mbedtls_des_crypt_ecb(ctx, input, output);
 
-            for( i = 0; i < 8; i++ )
-                output[i] = (unsigned char)( output[i] ^ iv[i] );
+            for(i = 0; i < 8; i++)
+                output[i] = (unsigned char)(output[i] ^ iv[i]);
 
-            memcpy( iv, temp, 8 );
+            memcpy(iv, temp, 8);
 
             input  += 8;
             output += 8;
@@ -394,5 +394,5 @@ int mbedtls_des_crypt_cbc( mbedtls_des_context *ctx,
         }
     }
 
-    return( 0 );
+    return(0);
 }

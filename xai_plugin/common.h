@@ -1,0 +1,35 @@
+#ifndef _COMMON_H_
+#define _COMMON_H_
+
+#include <stdio.h>
+#include "functions.h"
+#include "cex2dex.h"
+
+#define KERNEL_BASE					0x8000000000000000ULL
+#define KERNEL_ADDRESS(x)			(KERNEL_BASE | (uint32_t)(x))
+#define SYSCALL_OPD_PTR_OFFSET(n)	((lv2_peek(CEX_OFFSET) == CEX || lv2_peek(CEX_OFFSET - 0x10) == CEX ? SYSCALL_TABLE_OFFSET : SYSCALL_TABLE_DEX_OFFSET) + (n) * sizeof(uint64_t))
+#define SYSCALL_OPD_OFFSET(n)		lv2_peek(SYSCALL_OPD_PTR_OFFSET(n))
+#define SYSCALL_CODE_OFFSET(n)		lv2_peek(SYSCALL_OPD_OFFSET(n))
+
+#define EID_ROOT_KEY_SIZE			0x30
+
+/* Firmware specific defines */
+#define TOC_OFFSET					KERNEL_ADDRESS(0x34FBB0)
+#define TOC_490_OFFSET				KERNEL_ADDRESS(0x34FBA0)
+
+#define SYSCALL_TABLE_OFFSET		KERNEL_ADDRESS(0x363BE0)
+
+#define TOC_DEX_OFFSET				KERNEL_ADDRESS(0x3759C0)
+#define SYSCALL_TABLE_DEX_OFFSET	KERNEL_ADDRESS(0x38A4E8)
+
+#define PAYLOAD_OFFSET				KERNEL_ADDRESS(0x7F0000)
+#define PAYLOAD_OPD_OFFSET			KERNEL_ADDRESS(0x1630)
+
+#define HTAB_BASE					KERNEL_ADDRESS(0xF000000)
+#define HTAB_SIZE					0x40000ULL
+#define HTAB_ENTRY_SIZE				0x10
+
+#define SYSCALL_RUN_PAYLOAD			32
+#define SYSCALL_HVC_REDIRECTOR		811
+
+#endif

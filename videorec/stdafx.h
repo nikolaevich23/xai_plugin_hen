@@ -18,30 +18,27 @@ static int (*sub_CEF84_opd)(int view);
 
 
 int recording_start(char * action);
-static int (*vsh_37857F3F)(int)=0;
-static int (*vsh_F399CA36)(int)=0;
-static int (*vsh_E7C34044)(int)=0;
+static int (*vsh_37857F3F)(int) = 0;
+static int (*vsh_F399CA36)(int) = 0;
+static int (*vsh_E7C34044)(int) = 0;
 static int (*vshmain_A4338777)() = 0;
 static int * (*vshmain_75A22E21)() = 0;
 static int (*xCore_GetInterface)() = 0;
 static int (*xCB_Interface__GetInterface)(int) = 0;
 static int (*xCBMini_GetInterface)(int) = 0;
 
-static void * fake_plugin_action_if[3] = {(void*)recording_start,
-							0,
-							0};
+static void * fake_plugin_action_if[3] = { (void*)recording_start, 0, 0 };
 
-static int (*vshtask_A02D46E7)(int,const char *);
+static int (*vshtask_A02D46E7)(int, const char *);
 static void notify(char * param);
 static void notify(const char * format, int param1);
 
-
-static int (*vshmain_6D5FC398)(int dev_type,int port_num,int intr_type); // BeginInGameXMB
+static int (*vshmain_6D5FC398)(int dev_type, int port_num, int intr_type); // BeginInGameXMB
 
 static int (*reco_open)(int);
 
 
-#define MB(x)           (x*(1024*1024))
+#define MB(x)		(x*(1024*1024))
 
 struct sfo_hdr
 {
@@ -59,6 +56,5 @@ struct index_table
 	int data_1_max_len;
 	int data_1_offset;
 };
-
 
 #pragma hdrstop

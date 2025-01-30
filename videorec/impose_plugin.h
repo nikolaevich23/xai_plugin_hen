@@ -2,14 +2,14 @@
 class impose_plugin_interface
 {
 public:
-	int (*DoUnk0)(int sod,void *);	// screen of death
+	int (*DoUnk0)(int sod, void *);	// screen of death
 	int (*DoUnk1)();				// 
 	int (*DoUnk2)();				// blankscreen
 	int (*DoUnk3)(int);				// impose page
 	int (*DoUnk4)(int);				// game exit?
 	int (*DoUnk5)(char);			// controller setting game exit?
 	int (*DoUnk6)();				// pageclose blankscreen
-	int (*DoUnk7)(int,float,float);	// pad battery notice
+	int (*DoUnk7)(int, float, float);	// pad battery notice
 	int (*DoUnk8)(float);			// pad battery notice float
 	int (*DoUnk9)(int);				// 
 	int (*DoUnk10)();				// confirm gameupdate dialog

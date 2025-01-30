@@ -53,28 +53,26 @@ void * getNIDfunc(const char * vsh_module, uint32_t fnid)
 			
 		const char* lib_name_ptr =  (const char*)*(uint32_t*)((char*)export_stru_ptr + 0x10);
 				
-		if(strncmp(vsh_module,lib_name_ptr,strlen(lib_name_ptr))==0)
+		if(strncmp(vsh_module,lib_name_ptr,strlen(lib_name_ptr)) == 0)
 		{
-			//log("found module name\n");
 			// we got the proper export struct
 			uint32_t lib_fnid_ptr = *(uint32_t*)((char*)export_stru_ptr + 0x14);
 			uint32_t lib_func_ptr = *(uint32_t*)((char*)export_stru_ptr + 0x18);
 			uint16_t count = *(uint16_t*)((char*)export_stru_ptr + 6); // amount of exports
-			for(int i=0;i<count;i++)
+
+			for(int i = 0; i < count; i++)
 			{
-				if(fnid == *(uint32_t*)((char*)lib_fnid_ptr + i*4))
-				{
-					//log("found fnid func\n");
-					// take adress from OPD
-					return (void*&)*((uint32_t*)(lib_func_ptr) + i);
-				}
+				if(fnid == *(uint32_t*)((char*)lib_fnid_ptr + i * 4))				
+					return (void*&)*((uint32_t*)(lib_func_ptr) + i);				
 			}
 		}
-		//log("next table struct\n");
-		table=table+4;
+
+		table = table + 4;
 	}
+
 	return 0;
 }
+
 void hook_func(void * original,void * backup, void * hook_function)
 {
 	memcpy(backup,original,8); // copy original function offset + toc
@@ -90,6 +88,7 @@ int console_write(const char * s)
 	system_call_4(403, 0, (uint64_t) s, std::strlen(s), (uint64_t) &len);
 	return_to_user_prog(int);
 }
+
 void log(char * buffer)
 {
 	console_write(buffer);
@@ -98,7 +97,7 @@ void log(char * buffer)
 	int fd;
 	uint64_t nrw;
 	
-	if(cellFsOpen("/dev_hdd0/tmp/hfw_settings.log", CELL_FS_O_RDWR|CELL_FS_O_CREAT|CELL_FS_O_APPEND, &fd, NULL, 0) != CELL_OK)
+	if(cellFsOpen("/dev_hdd0/tmp/cfw_settings.log", CELL_FS_O_RDWR|CELL_FS_O_CREAT|CELL_FS_O_APPEND, &fd, NULL, 0) != CELL_OK)
 	{
 		//notify("unable to open.");
 	}
@@ -115,6 +114,7 @@ void log(char * buffer)
 	}
 	err = cellFsClose(fd);
 }
+
 void log(char * format, int param1)
 {
 	char tmp[0x100];
@@ -331,19 +331,19 @@ int GetItemFromMetaList_hook_Mini(int metalist,int item, char * objectfield, int
 		{
 			if(strcmp(objectfield,"Game:Game.ps3SystemVer") == 0)
 			{
-				log("Game:Game.ps3SystemVer: %s\n",(char*)out[2]);
-				((char*)(out[2]))[0] = 0;
+				//log("Game:Game.ps3SystemVer: %s\n",(char*)out[2]);
+				//((char*)(out[2]))[0] = 0;
 			}
 			if(strcmp(objectfield,"Game:Game.attribute") == 0)
 			{
 				log("Game:Game.attribute: %x\n",*(int*)out[2]);
 				*(int*)out[2] = *(int*)out[2] | 0xA5;
 			}
-			log("ObjectField: "); 
-			log(objectfield);
-			log(" -> ");
-			log((char*)out[2]);
-			log("\n");
+			//log("ObjectField: "); 
+			//log(objectfield);
+			//log(" -> ");
+			//log((char*)out[2]);
+			//log("\n");
 		}
 	}
 	return ret;
@@ -408,7 +408,7 @@ int (*cellFsOpen_bk)(const char *path,int flags,int *fd,void *arg,uint64_t size)
 int cellFsOpen_hook(const char *path,int flags,int *fd,void *arg,uint64_t size)
 {
 	reading_sfo = false;
-	if(strcmp(path,"/dev_hdd0/tmp/hfw_settings.log") == 0)
+	if(strcmp(path,"/dev_hdd0/tmp/cfw_settings.log") == 0)
 	{
 		return cellFsOpen_bk(path,flags,fd,arg,size);
 	}
@@ -441,8 +441,7 @@ int cellFsRead_hook(int fd, void *buf, uint64_t nbytes, uint64_t *nread)
 	return cellFsRead_bk(fd,buf,nbytes,nread);
 }
 extern "C" int _videorec_export_function_sfoverride(void)
-{
-	
+{	
 	if(sfoverride_hooked==false)
 	{
 		hook_func((void*)((int)getNIDfunc("sys_fs",0x718BF5F8)), (void*)cellFsOpen_bk ,(void*)cellFsOpen_hook );
@@ -450,7 +449,7 @@ extern "C" int _videorec_export_function_sfoverride(void)
 		hook_func((void*)((int)getNIDfunc("x3",0xA06976E)), (void*)x3_0xA06976E_bk ,(void*)x3_0xA06976E_hook );
 		hook_func((void*)((int)getNIDfunc("x3",0xD277E345)), (void*)x3_0xD277E345_bk ,(void*)x3_0xD277E345_hook );
 
-		int * x3interface =  (int*)xCB_Interface__GetInterface(xCore_GetInterface());
+		int *x3interface =  (int*)xCB_Interface__GetInterface(xCore_GetInterface());
 		hook_func((void*)x3interface[39], (void*)GetItemFromMetaList_bk ,(void*)GetItemFromMetaList_hook );
 
 		x3interface =  (int*)xCBMini_GetInterface(xCore_GetInterface());
@@ -466,7 +465,7 @@ extern "C" int _videorec_export_function_sfoverride(void)
 		restore_func((void*)((int)getNIDfunc("x3",0xA06976E)), (void*)x3_0xA06976E_bk);
 		restore_func((void*)((int)getNIDfunc("x3",0xD277E345)), (void*)x3_0xD277E345_bk);
 		
-		int * x3interface =  (int*)xCB_Interface__GetInterface(xCore_GetInterface());
+		int *x3interface =  (int*)xCB_Interface__GetInterface(xCore_GetInterface());
 		restore_func((void*)x3interface[39], (void*)GetItemFromMetaList_bk);
 
 		x3interface =  (int*)xCBMini_GetInterface(xCore_GetInterface());
@@ -488,15 +487,8 @@ void notify(char * param)
 void notify(const char * format, int param1)
 {
 	char tmp[0x100];
-	vsh_sprintf(tmp, format, param1);
-	log(tmp); log("\n");
-	vshtask_A02D46E7(0, tmp);
-}
-void notify(const char * format, int param1, int param2, int param3, int param4, bool logging)
-{
-	char tmp[0x100];
-	vsh_sprintf(tmp, format, param1, param2, param3, param4);
-	if (logging == true){ log(tmp); log("\n"); }
+	vsh_sprintf(tmp,format, param1);
+	log(tmp); log("\n");	
 	vshtask_A02D46E7(0, tmp);
 }
 

@@ -35,6 +35,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
     <TargetExt>.prx</TargetExt>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
+    <PrxModuleName>cellPrx_$(ProjectName)</PrxModuleName>
+    <TargetExt>.prx</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;__CELL_ASSERT__;%(PreprocessorDefinitions);</PreprocessorDefinitions>
@@ -52,6 +56,10 @@
       <OptimizationLevel>Level2</OptimizationLevel>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libsyscall.a;$(SCE_PS3_ROOT)\target\ppu\lib\libc.a;$(SCE_PS3_ROOT)\target\ppu\lib\librtc_stub.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFormat>PRXFile</OutputFormat>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game_plugin.h" />
