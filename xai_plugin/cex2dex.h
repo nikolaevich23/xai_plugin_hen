@@ -6,21 +6,21 @@
 #define EID0_BACKUP						"/dev_usb%03d/EID0_BACKUP.bin"
 #define EID0_BACKUP_TMP					"/dev_hdd0/tmp/EID0_BACKUP.bin"
 
-#define VSH_SELF_DEFAULT				"/dev_blind/vsh/module/vsh.self"
-#define VSH_SELF_CEX					"/dev_blind/vsh/module/vsh.self.cex"
-#define VSH_SELF_DEX					"/dev_blind/vsh/module/vsh.self.dex"
+#define VSH_SELF_DEFAULT				"/dev_rewrite/vsh/module/vsh.self"
+#define VSH_SELF_CEX					"/dev_rewrite/vsh/module/vsh.self.cex"
+#define VSH_SELF_DEX					"/dev_rewrite/vsh/module/vsh.self.dex"
 
-#define XMB_SPRX_DEFAULT				"/dev_blind/vsh/module/xmb_plugin.sprx"
-#define XMB_SPRX_CEX					"/dev_blind/vsh/module/xmb_plugin.sprx.cex"
-#define XMB_SPRX_DEX					"/dev_blind/vsh/module/xmb_plugin.sprx.dex"
+#define XMB_SPRX_DEFAULT				"/dev_rewrite/vsh/module/xmb_plugin.sprx"
+#define XMB_SPRX_CEX					"/dev_rewrite/vsh/module/xmb_plugin.sprx.cex"
+#define XMB_SPRX_DEX					"/dev_rewrite/vsh/module/xmb_plugin.sprx.dex"
 
-#define SYSCONF_SPRX_DEFAULT			"/dev_blind/vsh/module/sysconf_plugin.sprx"
-#define SYSCONF_SPRX_CEX				"/dev_blind/vsh/module/sysconf_plugin.sprx.cex"
-#define SYSCONF_SPRX_DEX				"/dev_blind/vsh/module/sysconf_plugin.sprx.dex"
+#define SYSCONF_SPRX_DEFAULT			"/dev_rewrite/vsh/module/sysconf_plugin.sprx"
+#define SYSCONF_SPRX_CEX				"/dev_rewrite/vsh/module/sysconf_plugin.sprx.cex"
+#define SYSCONF_SPRX_DEX				"/dev_rewrite/vsh/module/sysconf_plugin.sprx.dex"
 
-#define SOFTWARE_UPDATE_SPRX_DEFAULT	"/dev_blind/vsh/module/software_update_plugin.sprx"
-#define SOFTWARE_UPDATE_SPRX_CEX		"/dev_blind/vsh/module/software_update_plugin.sprx.cex"
-#define SOFTWARE_UPDATE_SPRX_DEX		"/dev_blind/vsh/module/software_update_plugin.sprx.dex"
+#define SOFTWARE_UPDATE_SPRX_DEFAULT	"/dev_rewrite/vsh/module/software_update_plugin.sprx"
+#define SOFTWARE_UPDATE_SPRX_CEX		"/dev_rewrite/vsh/module/software_update_plugin.sprx.cex"
+#define SOFTWARE_UPDATE_SPRX_DEX		"/dev_rewrite/vsh/module/software_update_plugin.sprx.dex"
 
 #define VSH_SELF_CD						"/dev_flash/vsh/module/vsh.self"
 #define XMB_PLUGIN_CD					"/dev_flash/vsh/module/xmb_plugin.sprx"
@@ -32,10 +32,12 @@
 
 #define DEX_OFFSET			0x800000000030F3B0ULL
 #define CEX_OFFSET			0x80000000002ED818ULL
+#define DEH_OFFSET			0x800000000032EB60ULL
 #define CEX_490_OFFSET		0x80000000002ED808ULL
 
 #define CEX					0x4345580000000000ULL
 #define DEX					0x4445580000000000ULL
+#define DEH					0x4445480000000000ULL
 
 #define FLASH_NOR			1
 #define FLASH_NAND			0

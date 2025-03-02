@@ -52,7 +52,7 @@ int toggle_xmb_plugin()
 	if(cellFsStat(DEV_BLIND, &stat) != CELL_OK)
 	{
 		ret = cellFsUtilMount("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", DEV_BLIND, 0, 0, 0, 0);
-		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_blind) = %x\n", ret);
+		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_rewrite) = %x\n", ret);
 
 		if(ret != CELL_OK)
 		{
@@ -89,7 +89,7 @@ int toggle_xmb_mode()
 	if(cellFsStat(DEV_BLIND, &stat) != CELL_OK)
 	{
 		ret = cellFsUtilMount("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", DEV_BLIND, 0, 0, 0, 0);
-		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_blind) = %x\n", ret);
+		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_rewrite) = %x\n", ret);
 
 		if(ret != CELL_OK)
 		{
@@ -132,7 +132,7 @@ int normal_mode()
 	if(cellFsStat(DEV_BLIND, &statinfo) != CELL_OK)
 	{
 		ret = cellFsUtilMount("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", DEV_BLIND, 0, 0, 0, 0);
-		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_blind) = %x\n", ret);
+		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_rewrite) = %x\n", ret);
 
 		if(ret != CELL_OK)
 		{
@@ -141,17 +141,17 @@ int normal_mode()
 		}
 	}
 
-	// "/dev_blind/vsh/module/vsh.self.nrm"
+	// "/dev_rewrite/vsh/module/vsh.self.nrm"
 	ret = cellFsStat(VSH_NRM, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(vshnrm) = %x\n", ret);
 
-	// "/dev_blind/vsh/etc/index.dat.nrm"
+	// "/dev_rewrite/vsh/etc/index.dat.nrm"
 	ret |= cellFsStat(IDX_NRM, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(idxnrm) = %x\n", ret);
 
-	// "/dev_blind/vsh/etc/version.txt.nrm"
+	// "/dev_rewrite/vsh/etc/version.txt.nrm"
 	ret |= cellFsStat(VER_NRM, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(vernrm) = %x\n", ret);
@@ -161,7 +161,7 @@ int normal_mode()
 	else
 		showMessage("msg_switch_error", (char *)XAI_PLUGIN, (char *)TEX_ERROR);
 
-	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_blind) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));
+	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_rewrite) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));
 
 	return ret;	
 }
@@ -174,7 +174,7 @@ int rebug_mode()
 	if(cellFsStat(DEV_BLIND, &statinfo) != CELL_OK)
 	{
 		ret = cellFsUtilMount("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", DEV_BLIND, 0, 0, 0, 0);
-		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_blind) = %x\n", ret);
+		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_rewrite) = %x\n", ret);
 
 		if(ret != CELL_OK)
 		{
@@ -183,17 +183,17 @@ int rebug_mode()
 		}
 	}
 
-	// "/dev_blind/vsh/module/vsh.self.swp"
+	// "/dev_rewrite/vsh/module/vsh.self.swp"
 	ret = cellFsStat(VSH_SWP, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(vshswp) = %x\n", ret);
 
-	// "/dev_blind/vsh/etc/index.dat.swp"
+	// "/dev_rewrite/vsh/etc/index.dat.swp"
 	ret |= cellFsStat(IDX_SWP, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(idxswp) = %x\n", ret);
 
-	// "/dev_blind/vsh/etc/version.txt.swp"
+	// "/dev_rewrite/vsh/etc/version.txt.swp"
 	ret |= cellFsStat(VER_SWP, &statinfo); 
 	if(ret != CELL_OK)
 		log("cellFsStat(verswp) = %x\n", ret);
@@ -203,7 +203,7 @@ int rebug_mode()
 	else
 		showMessage("msg_switch_error", (char *)XAI_PLUGIN, (char *)TEX_ERROR);
 
-	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_blind) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));
+	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_rewrite) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));
 
 	return ret;	
 }
@@ -216,7 +216,7 @@ int debugsettings_mode()
 	if(cellFsStat(DEV_BLIND, &statinfo) != CELL_OK)
 	{
 		ret = cellFsUtilMount("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", DEV_BLIND, 0, 0, 0, 0);
-		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_blind) = %x\n", ret);
+		log_function("xai_plugin", __VIEW__, "cellFsUtilMount", "(/dev_rewrite) = %x\n", ret);
 
 		if(ret != CELL_OK)
 		{
@@ -225,14 +225,14 @@ int debugsettings_mode()
 		}
 	}	
 
-	// "/dev_blind/vsh/module/sysconf_plugin.sprx.cex"
+	// "/dev_rewrite/vsh/module/sysconf_plugin.sprx.cex"
 	if(cellFsStat(SYSCONF_SPRX_CEX, &statinfo) == CELL_OK)
 	{
 		cellFsRename(SYSCONF_SPRX, SYSCONF_SPRX_DEX);
 		cellFsRename(SYSCONF_SPRX_CEX, SYSCONF_SPRX);
 		showMessage("msg_debug_settings_cex", (char*)XAI_PLUGIN, (char*)TEX_SUCCESS);	
 	}
-	// "/dev_blind/vsh/module/sysconf_plugin.sprx.dex"
+	// "/dev_rewrite/vsh/module/sysconf_plugin.sprx.dex"
 	else if(cellFsStat(SYSCONF_SPRX_DEX, &statinfo) == CELL_OK)
 	{	
 		cellFsRename(SYSCONF_SPRX, SYSCONF_SPRX_CEX);
@@ -245,7 +245,7 @@ int debugsettings_mode()
 		return 1;
 	}
 
-	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_blind) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));	
+	log_function("xai_plugin", __VIEW__, "cellFsUtilUnMount", "(/dev_rewrite) = %x\n", cellFsUtilUnMount(DEV_BLIND, 0));	
 
 	return CELL_OK;
 }

@@ -413,24 +413,22 @@ int export_rap()
 	uint8_t idps[0x10];
 	uint8_t rifKey[0x10], rapFile[0x10];
 	uint8_t *rap_key, *klicensee;
-	uint64_t read;	
+	uint64_t read;
 
 	wchar_t wchar_string[120];
 	int rap_created = 0;
 
 	usb_port = get_usb_device();
 
-	if (usb_port == -1)
+	if(usb_port == -1)
 	{
-		sprintf(exdata_folder, "/dev_hdd0/exdata");
-	}
-	else
-	{
-		sprintf_(exdata_folder, "/dev_usb%03d/exdata", usb_port);
-		if (cellFsStat(exdata_folder, &statinfo))
-			cellFsMkdir(exdata_folder, 0777);
+		showMessage("msg_usb_not_detected", (char *)XAI_PLUGIN, (char *)TEX_INFO2);
+		return 1;
 	}
 
+	sprintf_(exdata_folder, "/dev_usb%03d/exdata", usb_port);
+	if(cellFsStat(exdata_folder, &statinfo))
+		cellFsMkdir(exdata_folder, 0777);
 
 	if(sys_ss_get_console_id(idps) == EPERM)
 	{
@@ -524,15 +522,7 @@ int export_rap()
 			if(AesCbcCfbEncrypt(rap_key, key, 0x10, rap_initial_key, 128, null_iv) != SUCCEEDED)
 				goto error;			
 
-			if (usb_port == -1)
-			{				
-				sprintf_(license_file, "/dev_hdd0/exdata/%s.rap", (int)contentID);
-			}
-			else
-			{
-				sprintf_(license_file, "/dev_usb%03d/exdata/%s.rap", usb_port, (int)contentID);
-			}
-
+			sprintf_(license_file, "/dev_usb%03d/exdata/%s.rap", usb_port, (int)contentID);
 			if(saveFile(license_file, rap_key, 0x10) != 0)
 			{
 				error:
@@ -547,15 +537,11 @@ int export_rap()
 				if(rap_created > 1)
 				{
 					string = RetrieveString("msg_rifs_created", (char*)XAI_PLUGIN);	
-					swprintf_(wchar_string, 120, (wchar_t*)string, rap_created, (int)exdata_folder);
+					swprintf_(wchar_string, 120, (wchar_t*)string, rap_created);
 					PrintString(wchar_string, (char*)XAI_PLUGIN, (char*)TEX_ERROR);
 				}
-				else if (rap_created == 1)
-				{
-					string = RetrieveString("msg_rif_created", (char*)XAI_PLUGIN);
-					swprintf_(wchar_string, 120, (wchar_t*)string, rap_created, (int)exdata_folder);
-					PrintString(wchar_string, (char*)XAI_PLUGIN, (char*)TEX_ERROR);
-				}					
+				else if(rap_created == 1)
+					showMessage("msg_rif_created", (char*)XAI_PLUGIN, (char*)TEX_ERROR);
 
 				log("Error while exporting %s\n", license_file);
 
@@ -573,15 +559,12 @@ int export_rap()
 			if(rap_created > 1)
 			{
 				string = RetrieveString("msg_rifs_created", (char*)XAI_PLUGIN);	
-				swprintf_(wchar_string, 120, (wchar_t*)string, rap_created, (int)exdata_folder);
+				swprintf_(wchar_string, 120, (wchar_t*)string, rap_created);
 				PrintString(wchar_string, (char*)XAI_PLUGIN, (char*)TEX_SUCCESS);
 			}
 			else
-			{
-				string = RetrieveString("msg_rif_created", (char*)XAI_PLUGIN);
-				swprintf_(wchar_string, 120, (wchar_t*)string, rap_created, (int)exdata_folder);
-				PrintString(wchar_string, (char*)XAI_PLUGIN, (char*)TEX_SUCCESS);
-			}				
+				showMessage("msg_rif_created", (char*)XAI_PLUGIN, (char*)TEX_SUCCESS);	
+
 			return 0;
 		}
 	}
