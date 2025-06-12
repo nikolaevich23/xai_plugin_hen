@@ -438,6 +438,7 @@ void toggle_hen_gall();
 void read_write_generic(const char* src, const char* dest);
 int switch_hen_mode(int mode);
 void toggle_hen_repair();
+void toggle_hen_old();
 void uninstall_hen();
 
 #endif /* _CFW_SETTINGS_H */

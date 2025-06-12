@@ -227,6 +227,9 @@ typedef struct
 	uint8_t resource_id[12];
 } __attribute__((packed)) WebmanCfg;
 
+static uint8_t wmconfig[sizeof(WebmanCfg)];
+static WebmanCfg *webman_config = (WebmanCfg*)wmconfig;
+
 int mount_dev_blind();
 int umount_dev_blind();
 

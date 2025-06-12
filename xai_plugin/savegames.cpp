@@ -420,13 +420,11 @@ int export_rap()
 
 	usb_port = get_usb_device();
 
-	if(usb_port == -1)
-	{
-		showMessage("msg_usb_not_detected", (char *)XAI_PLUGIN, (char *)TEX_INFO2);
-		return 1;
-	}
+	if (usb_port != -1)
+		sprintf_(exdata_folder, "/dev_usb%03d/exdata", usb_port, NULL);
+	else
+		sprintf_(exdata_folder, "/dev_hdd0/exdata", NULL, NULL);
 
-	sprintf_(exdata_folder, "/dev_usb%03d/exdata", usb_port);
 	if(cellFsStat(exdata_folder, &statinfo))
 		cellFsMkdir(exdata_folder, 0777);
 
@@ -521,8 +519,8 @@ int export_rap()
    
 			if(AesCbcCfbEncrypt(rap_key, key, 0x10, rap_initial_key, 128, null_iv) != SUCCEEDED)
 				goto error;			
-
-			sprintf_(license_file, "/dev_usb%03d/exdata/%s.rap", usb_port, (int)contentID);
+			
+			sprintf_(license_file, "%s/%s.rap", (int)exdata_folder, (int)contentID);
 			if(saveFile(license_file, rap_key, 0x10) != 0)
 			{
 				error:

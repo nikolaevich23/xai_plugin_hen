@@ -265,6 +265,8 @@ static void plugin_thread(uint64_t arg)
 	}	
 	else if (strcmp(action_thread, "toggle_hen_repair") == 0)
 		toggle_hen_repair();
+	else if (strcmp(action_thread, "toggle_hen_old") == 0)
+		toggle_hen_old();
 	// Uninstall PS3HEN
 	else if (strcmp(action_thread, "uninstall_hen") == 0)
 		uninstall_hen();

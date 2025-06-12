@@ -10,6 +10,7 @@
 #include <cell/fs/cell_fs_file_api.h>
 #include <sys/timer.h>
 #include <sys/memory.h>
+#include <cell/hash/libmd5.h>
 #include <cstring>				  
 #include "log.h"
 #include "cfw_settings.h"
@@ -358,14 +359,12 @@ int create_rifs()
 
 	usb_port = get_usb_device();
 
-	if(usb_port == -1)
-	{
-		showMessage("msg_usb_not_detected", (char *)XAI_PLUGIN, (char *)TEX_INFO2);
-		return 1;
-	}
+	if (usb_port != -1)
+		sprintf_(USB, "/dev_usb%03d/exdata", usb_port, NULL);
+	else
+		sprintf_(USB, "/dev_hdd0/exdata", NULL, NULL);
 
 	uint32_t userID = xUserGetInterface()->GetCurrentUserNumber();
-	sprintf_(USB, "/dev_usb%03d/exdata", usb_port, NULL);
 
 	sprintf_(rif_file, "/dev_hdd0/home/%08d/exdata", userID, NULL);
 	if(cellFsStat(rif_file, &statinfo) != 0)
@@ -5786,6 +5785,11 @@ void toggle_hen_repair()
 	toggle_generic("/dev_hdd0/hen/toggles/hen_repair", "/dev_hdd0/hen/hen_repair.png", "Repair");
 }
 
+void toggle_hen_old()
+{
+	toggle_generic("/dev_hdd0/hen/hen_old", "/dev_hdd0/hen/hen_old.png", "hen_old");
+}
+
 void read_write_generic(const char* src, const char* dest)
 {
 	int ret, fda;
@@ -5956,4 +5960,3 @@ void uninstall_hen()
 	else showMessage("msg_hdd_open_error", (char *)XAI_PLUGIN, (char*)TEX_ERROR);
 
 }
-
