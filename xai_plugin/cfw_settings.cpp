@@ -4624,7 +4624,7 @@ static unsigned hex2bin(const char* hex, unsigned hlen, void* bin, unsigned blen
 	return i;
 }
 
-int decryptEncryptedISO(const char *isoFile)
+int decryptEncryptedISO(char *isoFile)
 {
 	uint8_t disc_key[0x10] = { 0 };
 	uint8_t key_d1[0x10] = { 0x38, 11, 0xcf, 11, 0x53, 0x45, 0x5b, 60, 120, 0x17, 0xab, 0x4f, 0xa3, 0xba, 0x90, 0xed };
@@ -4639,8 +4639,26 @@ int decryptEncryptedISO(const char *isoFile)
 
 	PS3RegionInfo discRegionInfo[0x20];
 
-	sprintf_(key_path, "%s.dkey", (int)isoFile, NULL);
-	if (!cellFsOpen(key_path, CELL_FS_O_RDONLY, &keyfd, NULL, 0))
+	char partial_path[256];
+	char dkey_path[256];
+
+	char *ext = strstr(isoFile, ".ISO");
+	if (ext == NULL)
+		ext = strstr(isoFile, ".iso");
+	if (ext == NULL)
+		ext = strstr(isoFile, ".ntfs["); // By aldostools
+
+	if (ext)
+	{
+		strcpy(partial_path, isoFile);
+		int path_len = strlen(partial_path);
+		int ext_len = strlen(ext);
+		partial_path[path_len - ext_len] = '\0';		
+		sprintf_(key_path, "%s.dkey", (int)partial_path, NULL);
+		sprintf_(dkey_path, "%s.dkey", (int)partial_path, NULL);
+	}	
+	
+	if (!cellFsOpen(dkey_path, CELL_FS_O_RDONLY, &keyfd, NULL, 0))
 	{
 		cellFsRead(keyfd, hex, 32, &keynread);
 		log("Found DiscKey %s\n", key_path);
@@ -4649,17 +4667,16 @@ int decryptEncryptedISO(const char *isoFile)
 		unsigned char bin[16];
 		unsigned n = hex2bin(hex, sizeof(hex), bin, sizeof(bin));
 
-		sprintf_(key_path, "%s.key", (int)isoFile, NULL);
+		sprintf_(key_path, "%s.key", (int)partial_path, NULL);
 		saveFile(key_path, bin, 0x10);
 	}
 
-	sprintf_(key_path, "%s.key", (int)isoFile, NULL);
 	if(!cellFsOpen(key_path, CELL_FS_O_RDONLY, &keyfd, NULL, 0))
 	{	
 		cellFsRead(keyfd, disc_key, 0x10, &keynread);
 		log("Found DiscKey\n", key_path);
 		cellFsClose(keyfd);
-	}	
+	}
 
 	readfile(isoFile, region0, 0x1000);
 	if(!memcmp(disc_key, empty, 0x10))
