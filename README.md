@@ -6,7 +6,7 @@ Remember that videorec.sprx and xai_plugin.sprx must be signed after compiled
 This version of xai_plugin was modified to be used on **CFW 4.91.3 Evilnat**
 
 Repositories used:
-[Evilnat xai_plugin](https://github.com/Evilnat/xai_plugin)
+[Evilnat xai_plugin](https://github.com/xXEvilnatXx/xai_plugin)
 [sguerrini97's setup_flash_for_otheros](https://github.com/sguerrini97/psl1ghtv2_ports/tree/master/setup_flash_for_otheros)
 [sguerrini97's get_token_seed](https://github.com/sguerrini97/psl1ghtv2_ports/tree/master/get_token_seed)
 [sguerrini97's dump_sysrom](https://github.com/sguerrini97/psl1ghtv2_ports/tree/master/dump_sysrom/source)
